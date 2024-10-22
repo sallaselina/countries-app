@@ -54,7 +54,7 @@ const CountrySingle = (props) => {
             <p>{weather.weather[0].description}</p>
             <p>Temperature: {weather.main.temp} degrees</p>
           </div>
-          <Button variant="light" onClick={() => navigate("/countries")}>
+          <Button onClick={() => navigate("/countries")}>
             Back to Countries
           </Button>
         </Col>

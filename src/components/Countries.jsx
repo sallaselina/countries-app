@@ -22,8 +22,7 @@ const Countries = () => {
   const isLoading = useSelector((state) => state.countries.isLoading);
   const searchInput = useSelector((state) => state.countries.search);
 
-  console.log("countries: ", countries);
-  console.log("isloading: ", isLoading);
+  const favouritesList = useSelector((state) => state.favourites.favourites);
 
   useEffect(() => {
     dispatch(initializeCountries());

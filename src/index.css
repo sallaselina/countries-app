@@ -20,3 +20,8 @@ body {
   transform: translate(-50%, -50%);
   color: white;
 }
+
+Footer {
+  position: fixed;
+  bottom: 0;
+}
