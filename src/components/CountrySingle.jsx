@@ -5,9 +5,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const CountrySingle = (props) => {
   const location = useLocation();
+  const country = props.country || location.state.country;
   const [weather, setWeather] = useState("");
   const [isWeatherLoading, setIsWeatherLoading] = useState(true);
-  const country = props.country || location.state.country;
   const navigate = useNavigate();
 
   useEffect(() => {

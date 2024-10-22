@@ -17,15 +17,16 @@ const Login = () => {
     loginWithEmailAndPassword(email, password);
   };
   return (
-    <div>
-      <Form>
+    <div className="d-flex justify-content-center align-items-center text-center">
+      <Form className="">
         <Form.Group className="mb-3 p-2">
-          <div>Hello {user?.email}</div>
+          <h2>Welcome {user?.email}</h2>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
+            className="p-1 rounded"
           />
         </Form.Group>
         <Form.Group className="p-2">
@@ -34,6 +35,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
+            className="p-1 rounded"
           />
         </Form.Group>
         <Button onClick={handleLogin} className="m-2">

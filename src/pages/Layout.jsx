@@ -13,7 +13,7 @@ const Layout = () => {
   return (
     <Container fluid>
       <Row>
-        <Navbar bg="light" variant="light">
+        <Navbar sticky="top" bg="info" variant="light">
           <Container className="justify-content-end">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -27,14 +27,21 @@ const Layout = () => {
                 <LinkContainer to="/favourites">
                   <Nav.Link>Favourites</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/register">
-                  <Nav.Link>Register</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/login">
-                  <Nav.Link>Login</Nav.Link>
-                </LinkContainer>
+                {!user && (
+                  <LinkContainer to="/register">
+                    <Nav.Link>Register</Nav.Link>
+                  </LinkContainer>
+                )}
+
+                {!user && (
+                  <LinkContainer to="/login">
+                    <Nav.Link>Login</Nav.Link>
+                  </LinkContainer>
+                )}
                 {user && <Button onClick={logout}>Logout</Button>}
-                <div>{user && `Hello and welcome ${user?.email}`}</div>
+                <div className="greeting p-2">
+                  {user && `Hello and welcome ${user?.email}`}
+                </div>
               </Nav>
             </Navbar.Collapse>
           </Container>

@@ -1,7 +1,12 @@
 const Home = () => {
   return (
-    <div>
-      Countries App, made in Business College Helsinki lessons (react24k)
+    <div className="home-page">
+      <div className="hero-image">
+        <div className="hero-text text-center pt-5">
+          Countries Application, search for countries and add them to your
+          favourites!
+        </div>
+      </div>
     </div>
   );
 };

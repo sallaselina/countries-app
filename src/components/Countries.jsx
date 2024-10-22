@@ -22,8 +22,20 @@ const Countries = () => {
   const isLoading = useSelector((state) => state.countries.isLoading);
   const searchInput = useSelector((state) => state.countries.search);
 
+  console.log("countries: ", countries);
+  console.log("isloading: ", isLoading);
+
+  const exampleMapTest = () => {
+    console.time("examplemaptest start: ");
+    countries.map((country) => {
+      console.log(country.name.common);
+    });
+    console.timeEnd("examplemap test end: ");
+  };
+
   useEffect(() => {
     dispatch(initializeCountries());
+    exampleMapTest();
   }, [dispatch]);
   //handle the loading, use col and spinner
   if (isLoading) {

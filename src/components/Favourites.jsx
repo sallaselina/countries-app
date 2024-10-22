@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../services/countriesServices";
 import { Button, Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import { clearFavourites } from "../store/favouritesSlice";
-import CountrySingle from "./CountrySingle";
+//import CountrySingle from "./CountrySingle";
+import CountryCard from "./CountryCard";
 
 const Favourites = () => {
   const dispatch = useDispatch();
@@ -71,7 +72,7 @@ const Favourites = () => {
               .includes(search.toLowerCase());
           })
           .map((country) => (
-            <CountrySingle key={country.name.common} country={country} />
+            <CountryCard key={country.name.common} country={country} />
           ))}
       </Row>
     </Container>
