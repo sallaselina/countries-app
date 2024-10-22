@@ -25,17 +25,8 @@ const Countries = () => {
   console.log("countries: ", countries);
   console.log("isloading: ", isLoading);
 
-  const exampleMapTest = () => {
-    console.time("examplemaptest start: ");
-    countries.map((country) => {
-      console.log(country.name.common);
-    });
-    console.timeEnd("examplemap test end: ");
-  };
-
   useEffect(() => {
     dispatch(initializeCountries());
-    exampleMapTest();
   }, [dispatch]);
   //handle the loading, use col and spinner
   if (isLoading) {

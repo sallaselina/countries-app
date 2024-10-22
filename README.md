@@ -1,3 +1,8 @@
 # Countries App
 
-Simple React Application using APIs: OpenWeatherMap API and Rest Countries API
+Simple React Application using APIs:
+
+- OpenWeatherMapAPI
+- Rest Countries API
+
+Redux for state management

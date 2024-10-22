@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCountries } from "../services/countriesServices";
 import { Button, Col, Container, Form, Row, Spinner } from "react-bootstrap";
-import { clearFavourites } from "../store/favouritesSlice";
-//import CountrySingle from "./CountrySingle";
+import {
+  clearFavourites,
+  getFavouritesFromSource,
+} from "../store/favouritesSlice";
 import CountryCard from "./CountryCard";
 
 const Favourites = () => {
@@ -13,9 +15,6 @@ const Favourites = () => {
   const countriesLoading = useSelector((state) => state.countries.isLoading);
   const favouritesList = useSelector((state) => state.favourites.favourites);
   const favouritesLoading = useSelector((state) => state.favourites.isLoading);
-  console.log("favouritesList: ", favouritesList);
-
-  console.log("countriesList inside favourites: ", countriesList);
 
   if (Array.isArray(favouritesList) && favouritesList.length > 0) {
     countriesList = countriesList.filter((country) =>
@@ -27,6 +26,7 @@ const Favourites = () => {
 
   useEffect(() => {
     dispatch(initializeCountries());
+    dispatch(getFavouritesFromSource());
   }, [dispatch]);
 
   if (countriesLoading || favouritesLoading) {
@@ -59,11 +59,14 @@ const Favourites = () => {
           </Form>
         </Col>
       </Row>
-      <Row xs={2} md={3} lg={4} className="g-3">
+      {favouritesList.length > 0 && (
         <Button onClick={() => dispatch(clearFavourites())} variant="danger">
           Clear Favourites
         </Button>
-      </Row>
+      )}
+      {favouritesList.length === 0 && (
+        <Row className="text-center">No favourites added yet</Row>
+      )}
       <Row xs={2} md={3} lg={4} className="g-3">
         {countriesList
           .filter((country) => {
