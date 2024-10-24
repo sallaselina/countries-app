@@ -102,6 +102,7 @@ const Countries = () => {
                       </ListGroup.Item>
                       <ListGroup.Item>
                         <i className="me-2">
+                          <label>Currency: </label>
                           {Object.values(country.currencies || {})
                             .map((currency) => currency.name)
                             .join(", ") || "No currency"}
@@ -109,28 +110,55 @@ const Countries = () => {
                       </ListGroup.Item>
                       <ListGroup.Item>
                         <i className="me-2">
+                          <label>Language(s): </label>
                           {Object.values(country.languages || {}).join(", ") ||
                             "No language"}
                         </i>
                       </ListGroup.Item>
-                      {/* two additional list items: currency and languages*/}
+                      <ListGroup.Item>
+                        <i className="me-2">
+                          <label>Continent: </label>
+                          {Object.values(country.continents || {})
+                            .map((continent) => continent)
+                            .join(", ") || "no continent found"}
+                        </i>
+                      </ListGroup.Item>
                     </ListGroup>
-                    <Button
-                      variant="primary"
-                      onClick={() =>
-                        dispatch(addFavourite(country.name.common))
-                      }
-                    >
-                      Add to Favourites
-                    </Button>
-                    <Button
-                      variant="warning"
-                      onClick={() =>
-                        dispatch(removeFavourite(country.name.common))
-                      }
-                    >
-                      Remove from Favourites
-                    </Button>
+                    <div>
+                      {favouritesList.includes(country) ? (
+                        <Button
+                          className=""
+                          variant="warning"
+                          onClick={() =>
+                            dispatch(removeFavourite(country.name.common))
+                          }
+                        >
+                          <span
+                            className="material-symbols-outlined"
+                            style={{ fontSize: "1rem" }}
+                          >
+                            close
+                          </span>
+                          Remove from Favourites
+                        </Button>
+                      ) : (
+                        <Button
+                          className="m-2 p-2"
+                          variant="primary"
+                          onClick={() =>
+                            dispatch(addFavourite(country.name.common))
+                          }
+                        >
+                          <span
+                            className="material-symbols-outlined"
+                            style={{ fontSize: "1rem" }}
+                          >
+                            add
+                          </span>
+                          Add to Favourites
+                        </Button>
+                      )}
+                    </div>
                   </Card.Body>
                 </Card>
               </Col>

@@ -13,39 +13,47 @@ const Layout = () => {
   return (
     <Container fluid>
       <Row>
-        <Navbar sticky="top" bg="info" variant="light">
-          <Container className="d-flex">
-            <div className="d-flex justify-content-end">
-              <Nav>
-                <LinkContainer to="/">
-                  <Nav.Link>Home</Nav.Link>
+        <Navbar expand="lg" bg="info" variant="light" className="p-2">
+          <Navbar.Brand href="/">
+            <h1>Countries App</h1>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
+              <LinkContainer to="/">
+                <Nav.Link>Home</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/countries">
+                <Nav.Link>Countries</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/favourites">
+                <Nav.Link>Favourites</Nav.Link>
+              </LinkContainer>
+              {!user && (
+                <LinkContainer to="/register">
+                  <Nav.Link>Register</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/countries">
-                  <Nav.Link>Countries</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/favourites">
-                  <Nav.Link>Favourites</Nav.Link>
-                </LinkContainer>
-                {!user && (
-                  <LinkContainer to="/register">
-                    <Nav.Link>Register</Nav.Link>
-                  </LinkContainer>
-                )}
+              )}
 
-                {!user && (
-                  <LinkContainer to="/login">
-                    <Nav.Link>Login</Nav.Link>
-                  </LinkContainer>
-                )}
-                {user && <Button onClick={logout}>Logout</Button>}
-                <div className="d-flex">
-                  <div className="justify-content-end p-2">
-                    {user && `Hello and welcome ${user?.email}`}
-                  </div>
-                </div>
-              </Nav>
-            </div>
-          </Container>
+              {!user && (
+                <LinkContainer to="/login">
+                  <Nav.Link>Login</Nav.Link>
+                </LinkContainer>
+              )}
+
+              {user && <Button onClick={logout}>Logout</Button>}
+
+              <span
+                className="greeting rounded"
+                style={{
+                  color: "white",
+                  border: "2px solid white",
+                }}
+              >
+                {user && ` ${user?.email}`}
+              </span>
+            </Nav>
+          </Navbar.Collapse>
         </Navbar>
       </Row>
       <Row>

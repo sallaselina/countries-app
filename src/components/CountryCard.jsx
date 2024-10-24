@@ -53,13 +53,15 @@ const CountryCard = ({ country }) => {
                     .join(", ") || "no language"}
                 </i>
               </ListGroup.Item>
+              <ListGroup.Item>
+                <i className="me-2">
+                  {Object.values(country.continents || {})
+                    .map((continent) => continent)
+                    .join(", ") || "no continent found"}
+                </i>
+              </ListGroup.Item>
             </ListGroup>
-            <Button
-              variant="primary"
-              onClick={() => dispatch(addFavourite(country.name.common))}
-            >
-              Add Favourite
-            </Button>
+
             <Button
               variant="warning"
               onClick={() => dispatch(removeFavourite(country.name.common))}

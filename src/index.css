@@ -25,3 +25,8 @@ Footer {
   position: fixed;
   bottom: 0;
 }
+
+.greeting {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}

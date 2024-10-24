@@ -2,7 +2,7 @@ import { Button, Form } from "react-bootstrap";
 import { auth, loginWithEmailAndPassword } from "../auth/firebase";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, redirect } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,12 +15,15 @@ const Login = () => {
       alert("Enter both email and password");
     }
     loginWithEmailAndPassword(email, password);
+    return redirect("/countries");
   };
+
   return (
     <div className="d-flex justify-content-center align-items-center text-center">
-      <Form className="">
+      <Form>
         <Form.Group className="mb-3 p-2">
           <h2>Welcome {user?.email}</h2>
+
           <input
             type="email"
             value={email}

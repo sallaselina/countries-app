@@ -57,16 +57,22 @@ const Favourites = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </Form>
+          {favouritesList.length > 0 && (
+            <Button
+              onClick={() => dispatch(clearFavourites())}
+              variant="danger"
+            >
+              Clear Favourites
+            </Button>
+          )}
         </Col>
       </Row>
-      {favouritesList.length > 0 && (
-        <Button onClick={() => dispatch(clearFavourites())} variant="danger">
-          Clear Favourites
-        </Button>
-      )}
-      {favouritesList.length === 0 && (
-        <Row className="text-center">No favourites added yet</Row>
-      )}
+      <Row className="pt-3">
+        {favouritesList.length === 0 && (
+          <h2 className="me-2 text-center">No favourite countries added</h2>
+        )}
+      </Row>
+
       <Row xs={2} md={3} lg={4} className="g-3">
         {countriesList
           .filter((country) => {
