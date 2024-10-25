@@ -49,7 +49,7 @@ const Favourites = () => {
         <Col className="mt-5 d-flex justify-content-center">
           <Form>
             <Form.Control
-              style={{ width: "18rem" }}
+              style={{ width: "18rem", border: "2px solid black" }}
               type="search"
               className="me-2"
               placeholder="Search"
