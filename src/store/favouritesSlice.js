@@ -6,7 +6,6 @@ import {
   clearFavouritesFromFirebase,
 } from "../auth/firebase";
 import { collection, query, getDocs } from "firebase/firestore";
-import Swal from "sweetalert2";
 
 const initialState = {
   favourites: [],
@@ -35,12 +34,6 @@ export const favouritesSlice = createSlice({
       state.favourites = state.favourites.filter(
         (favourite) => favourite !== action.payload
       );
-      Swal.fire({
-        title: "Alert",
-        text: "Are you sure you want to remove favourite?",
-        icon: "warning",
-        confirmButtonText: "Yes",
-      });
     },
     getFavourites(state, action) {
       state.favourites = action.payload;

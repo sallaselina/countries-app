@@ -23,7 +23,6 @@ const Countries = () => {
   const countries = useSelector((state) => state.countries.countries);
   const isLoading = useSelector((state) => state.countries.isLoading);
   const searchInput = useSelector((state) => state.countries.search);
-
   const favouritesList = useSelector((state) => state.favourites.favourites);
 
   useEffect(() => {
@@ -127,9 +126,9 @@ const Countries = () => {
                       </ListGroup.Item>
                     </ListGroup>
                     <div>
-                      {favouritesList.includes(country) ? (
+                      {favouritesList.includes(country.name.common) ? (
                         <Button
-                          className=""
+                          className="m-2 p-2"
                           variant="warning"
                           onClick={() =>
                             dispatch(removeFavourite(country.name.common))

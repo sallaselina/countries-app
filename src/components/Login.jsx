@@ -15,9 +15,6 @@ const Login = () => {
       alert("Enter both email and password");
     }
     loginWithEmailAndPassword(email, password);
-    if (user) {
-      navigate("/countries");
-    }
   };
 
   return (
@@ -25,6 +22,7 @@ const Login = () => {
       <Form>
         <Form.Group className="mb-3 p-2">
           <h2>Welcome {user?.email}</h2>
+          {user ? navigate("/countries") : ""}
 
           <input
             type="email"

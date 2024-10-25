@@ -1,24 +1,12 @@
 import { Button, Col, Card, ListGroup } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addFavourite, removeFavourite } from "../store/favouritesSlice";
+import { removeFavourite } from "../store/favouritesSlice";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-import Swal from "sweetalert2";
 
 const CountryCard = ({ country }) => {
   const dispatch = useDispatch();
-  /*   const handleSubmit = () => {
-    Swal.fire({
-      title: "Alert",
-      text: "Are you sure you want to remove favourite?",
-      icon: "warning",
-      confirmButtonText: "Yes",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        dispatch(removeFavourite(country.name.common));
-      }
-    });
-  }; */
+
   return (
     <div>
       <Col className="mt-5" key={country.name.official}>
