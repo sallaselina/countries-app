@@ -50,6 +50,12 @@ const Layout = () => {
                   border: "2px solid white",
                 }}
               >
+                {!user && (
+                  <span className="material-symbols-outlined">
+                    account_circle
+                  </span>
+                )}
+
                 {user && ` ${user?.email}`}
               </span>
             </Nav>

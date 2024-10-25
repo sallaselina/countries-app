@@ -15,6 +15,8 @@ import { search } from "../store/countriesSlice";
 // import { LinkContainer } from "react-router-bootstrap";
 import { addFavourite, removeFavourite } from "../store/favouritesSlice";
 import { Link } from "react-router-dom";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -133,12 +135,7 @@ const Countries = () => {
                             dispatch(removeFavourite(country.name.common))
                           }
                         >
-                          <span
-                            className="material-symbols-outlined"
-                            style={{ fontSize: "1rem" }}
-                          >
-                            close
-                          </span>
+                          <RemoveCircleIcon />
                           Remove from Favourites
                         </Button>
                       ) : (
@@ -149,12 +146,7 @@ const Countries = () => {
                             dispatch(addFavourite(country.name.common))
                           }
                         >
-                          <span
-                            className="material-symbols-outlined"
-                            style={{ fontSize: "1rem" }}
-                          >
-                            add
-                          </span>
+                          <AddIcon />
                           Add to Favourites
                         </Button>
                       )}

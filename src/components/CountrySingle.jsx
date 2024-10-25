@@ -40,6 +40,7 @@ const CountrySingle = (props) => {
 
   return (
     <Container fluid>
+      <h1 className="text-center">Weather</h1>
       <Row>
         <Col className="mt-5 d-flex justify-content-center">
           <Image
@@ -47,16 +48,18 @@ const CountrySingle = (props) => {
           />
         </Col>
         <Col>
-          <h2>{country.name.common}</h2>
-          <h3> {country.capital}</h3>
+          <div className="bg-info p-2 m-2 rounded">
+            <h2>{country.name.common}</h2>
+            <h3> {country.capital}</h3>
 
-          <div>
-            <p>{weather.weather[0].description}</p>
-            <p>Temperature: {weather.main.temp} degrees</p>
+            <div>
+              <p>{weather.weather[0].description}</p>
+              <p>Temperature: {weather.main.temp} degrees</p>
+            </div>
+            <Button onClick={() => navigate("/countries")}>
+              Back to Countries
+            </Button>
           </div>
-          <Button onClick={() => navigate("/countries")}>
-            Back to Countries
-          </Button>
         </Col>
         <Col>{/* <Image src={country.flags.svg} /> */}</Col>
       </Row>

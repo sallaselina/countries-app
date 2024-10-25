@@ -15,7 +15,9 @@ const Login = () => {
       alert("Enter both email and password");
     }
     loginWithEmailAndPassword(email, password);
-    navigate("/countries");
+    if (user) {
+      navigate("/countries");
+    }
   };
 
   return (
