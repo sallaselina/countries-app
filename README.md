@@ -20,6 +20,6 @@ Simple React Application using APIs:
 
 ### Authors and acknowledgements
 
-This project was constructed during Martin Holland's React Advanced course in Business College Helsinki. This project is based on Martin's code.
+This project was constructed during [Martin Holland](https://github.com/martin-holland)'s React Advanced course in Business College Helsinki. This project is based on Martin's code.
 
 His repository is here: https://github.com/martin-holland/countries-bootstrap-react24k-lessons/.
