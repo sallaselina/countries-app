@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, registerWithEmailAndPassword } from "../auth/firebase";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -22,26 +22,40 @@ const Register = () => {
   };
   //TODO: add check to see if user is logged in navigate to countries if logged in
   return (
-    <div>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Full Name"
-      />
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      <Button onClick={handleRegister}>Register</Button>
+    <div className="d-flex justify-content-center align-items-center text-center">
+      <Form>
+        <Form.Group className="p-2">
+          <h1>Register</h1>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Full Name"
+            className="p-1 rounded"
+          />
+        </Form.Group>
+        <Form.Group className="p-2">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            className="p-1 rounded"
+          />
+        </Form.Group>
+        <Form.Group className="p-2">
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            className="p-1 rounded"
+          />
+        </Form.Group>
+        <Button className="m-2" onClick={handleRegister}>
+          Register
+        </Button>
+      </Form>
     </div>
   );
 };
